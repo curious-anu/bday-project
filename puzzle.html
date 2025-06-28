@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amit's Puzzle</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #4b0082;
+      margin-bottom: 10px;
+    }
+
+    .phrase {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .dropzone {
+      display: inline-block;
+      min-width: 120px;
+      min-height: 30px;
+      padding: 5px;
+      margin-left: 10px;
+      border: 2px dashed #aaa;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .word-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .word {
+      padding: 10px 15px;
+      background: #fff0f9;
+      border-radius: 10px;
+      border: 1px solid #d8b4fe;
+      cursor: grab;
+      font-weight: bold;
+    }
+
+    #message {
+      margin-top: 40px;
+      background: #ffffffcc;
+      padding: 20px;
+      border-radius: 12px;
+      color: #6a097d;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+ <!-- Top Nav Button -->
+  <div class="nav-button">
+    <div class="nav-menu">
+      <a href="indexxx.html">1.Home💗</a>
+      <a href="timer.html">2.Timer💗</a>
+      <a href="game.html">3.Game💗</a>
+      <a href="puzzle.html">4.Puzzle💗</a>
+      <a href="letter.html">5.A Letter💗</a>
+      <a href="gallery.html">6.Memory pic Wall💗 </a>
+      <a href="cake.html">7.Surprise! </a>
+    </div>
+
+  <h2>🔐 Complete the lovely Phrases to Unlock the Secret 💜</h2>
+  <h4>Drag and drop in the boxes until all answers r correct and a secret suprise msg is popped below</h4>
+
+
+  <div class="phrase">
+    1. Amit’s favorite addiction:
+    <div class="dropzone" ondrop="drop(event, 0)" ondragover="allowDrop(event)"></div>
+  </div>
+
+  <div class="phrase">
+    2. Certified: Most
+    <div class="dropzone" ondrop="drop(event, 1)" ondragover="allowDrop(event)"></div> energy
+  </div>
+
+  <div class="phrase">
+    3. His fav dessert:
+    <div class="dropzone" ondrop="drop(event, 2)" ondragover="allowDrop(event)"></div>
+  </div>
+
+  <div class="phrase">
+    4. He touches Anu's soul and passes current like
+    <div class="dropzone" ondrop="drop(event, 3)" ondragover="allowDrop(event)"></div>
+  </div>
+
+  <div class="word-box">
+    <div class="word" draggable="true" ondragstart="drag(event)" id="Anu">Anu</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="magical">Magical</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="icecream">Icecream</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="thunder">Thunder</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="orangejuice">Orangejuice</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="kiss">Kiss</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="ideal">Ideal</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="warmth">Warmth</div>
+    <div class="word" draggable="true" ondragstart="drag(event)" id="kinderjoy">Kinderjoy</div>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    let correctAnswers = ["Anu", "magical", "icecream", "thunder"];
+    let userAnswers = ["", "", "", ""];
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev, index) {
+      ev.preventDefault();
+      let data = ev.dataTransfer.getData("text");
+      ev.target.innerText = data;
+      userAnswers[index] = data;
+      checkAllCorrect();
+    }
+
+    function checkAllCorrect() {
+      for (let i = 0; i < correctAnswers.length; i++) {
+        if (userAnswers[i] !== correctAnswers[i]) {
+          return;
+        }
+      }
+      // If all correct
+      const msg = document.getElementById("message");
+      msg.style.display = "block";
+      msg.innerHTML = `🎉 You did it baeeee! 🎉<br><br>
+        Now take the <strong>first letters</strong> of the answers you picked...<br>
+        That spells the most amazing human this galaxy ever knew 💜<br><br>
+        <strong>A. M. I. T.</strong><br><br>Password:lavenderkiss`;
+    }
+  </script>
+</body>
+</html>
+

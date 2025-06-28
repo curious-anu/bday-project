@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Letter Room</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #fce1f2, #e0c3fc);
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      padding: 40px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #a100a1;
+      margin-bottom: 30px;
+    }
+
+    .pigeon {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .pigeon:hover {
+      transform: scale(1.1);
+    }
+
+    #letterPopup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .letter-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 70%;
+      max-width: 600px;
+      text-align: left;
+      color: #4b006e;
+      font-size: 1.2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 8px 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #d8b4fe;
+      color: #4b006e;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Nav Button -->
+  <div class="nav-button">
+    <div class="nav-menu">
+      <a href="indexxx.html">1.Home💗</a>
+      <a href="timer.html">2.Timer💗</a>
+      <a href="game.html">3.Game💗</a>
+      <a href="puzzle.html">4.Puzzle💗</a>
+      <a href="letter.html">5.A Letter💗</a>
+      <a href="gallery.html">6.Memory pic Wall💗 </a>
+      <a href="cake.html">7.Surprise! </a>
+    </div>
+
+  <h1>🕊️ A Letter Flew Just For You 🕊️</h1>
+<h3>Click on the pigeon to recieve it..and yes u r right..her name is Anu uwu :3</h3>
+
+  <img src="https://www.shutterstock.com/image-illustration/raster-version-white-pigeon-fly-260nw-221832862.jpg" alt="Pigeon with Letter" class="pigeon" onclick="openLetter()">
+
+  <div id="letterPopup">
+    <div class="letter-content">
+      <p><br><br>My Amit,<br>
+Sometimes I wonder what I ever did to deserve someone like you.
+Your patience… it’s something I still can’t fully believe is real. In a world that often rushes, misunderstands, or leaves:I found <strong>YOU</strong>. Someone who stayed, even when I hesitated. Someone who waited, even when I didn’t know how to move.<br>
+I was scared of love. Scared of being too much, or not enough. But then came your quiet understanding, your gentle presence, and your warmth that wrapped around all the broken parts of me and told them, “You’re safe now.”<br>
+You didn’t just teach me love bae..you redefined it. Because of you, I started believing in things I had locked away. You’ve brought softness where I had walls, and dreams where I had doubts.Thankyou so much bae..I promise I would be the best partner for ya..🥺🥺<br>Happy birthday my soulmate❤️
+<br>
+Yours in every lifetime,
+Anu      <br>
+      </p>
+      <button class="close-btn" onclick="closeLetter()">Close</button>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio controls autoplay>
+    <source src="audio/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script>
+    function openLetter() {
+      document.getElementById("letterPopup").style.display = "flex";
+    }
+
+    function closeLetter() {
+      document.getElementById("letterPopup").style.display = "none";
+    }
+  </script>
+</body>
+</html>

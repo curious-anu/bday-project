@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Your Gift 🎁</title>
+  <link rel="stylesheet" href="stylee.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+.nav-button {
+  margin-bottom: 20px; /* Add margin below the navigation bar */
+}
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 10vh auto;
+      width: 60%;
+      text-align: center;
+    }
+
+    .gift {
+      font-size: 3rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gift:hover {
+      transform: scale(1.3);
+    }
+
+    #popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background: #fff0f9;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .popup-content video {
+      width: 300px;
+      border-radius: 12px;
+    }
+
+    .popup-content button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #d8b4fe;
+      color: #4b006e;
+      cursor: pointer;
+    }
+
+    .wrong-msg {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffecf0;
+      color: #b91c1c;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+      z-index: 99;
+ }
+
+h3 {
+  font-family: 'Quicksand', sans-serif; /* Ensure the same font is used */
+  font-size: 3rem; /* Match the size of the original h1 */
+  color: #6a0dad; /* Retain the same color */
+  text-align: left; /* Maintain the alignment */
+  margin-top: 40px; /* Optional: Adjust margin as needed */
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="nav-button">
+    <div class="nav-menu">
+      <a href="indexxx.html">Home</a>
+      <a href="timer.html">1.Timer</a>
+      <a href="game.html">2.Game</a>
+      <a href="puzzle.html">3.Game(The current page)</a>
+      <a href="letter.html">4.Letters</a>
+      <a href="gallery.html">5.Memory pic Wall </a>
+      <a href="cake.html">6.Let's party! </a>
+  </div>
+</div>
+ 
+  <div class="game-area" style="margin-top: 100px; margin-right: 250px;">
+    <h3 style="text-align: left; font-family: 'Dancing Script', cursive; font-size: 3rem; color: #6a0dad;">🎁 Find the Gift I Hid Just for You 🎁</h3>
+<h4>Please press the back button once done,cholli..was unable to add navigation here..</h4>
+    <div class="gift-grid">
+      <div class="gift" onclick="wrong()">🎀</div>
+      <div class="gift" onclick="wrong()">📦</div>
+      <div class="gift" onclick="rightGift()">🎁</div>
+      <div class="gift" onclick="wrong()">🧸</div>
+      <div class="gift" onclick="wrong()">🎈</div>
+      <div class="gift" onclick="wrong()">💝</div>
+    </div>
+  </div>
+
+  <!-- Video Popup -->
+  <div id="popup">
+    <div class="popup-content">
+      <h2>💜 You Found It 💜</h2>
+      <p>This is me... the real me... just for you 🥺</p>
+      <video controls>
+        <source src="/static/video/first_look_from_anu.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <br>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <div class="wrong-msg" id="wrongMsg">Not this one... try harder:)) love you 😚</div>
+
+  <script>
+    function rightGift() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function wrong() {
+      const msg = document.getElementById("wrongMsg");
+      msg.style.display = "block";
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

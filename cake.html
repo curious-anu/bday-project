@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virtual Birthday Cake 🎂</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #fff0f5, #e6e6fa);
+      font-family: 'Segoe UI', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #b30086;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #333;
+    }
+
+    iframe {
+      margin-top: 30px;
+      width: 90%;
+      max-width: 800px;
+      height: 500px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+<div id="lock-screen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#f5e9ff; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999;">
+  <h2 style="color:#6a0dad;">🎂 One last step...</h2>
+  <p style="font-size: 16px;">Enter the secret password to unlock your birthday surprise 💌</p>
+  <input type="password" id="cake-pass" placeholder="Password..." style="padding:8px; border-radius:5px; margin-top:10px;">
+  <button onclick="checkCakePass()" style="margin-top:15px; padding:8px 16px; border:none; background:#6a0dad; color:white; border-radius:5px;">Unlock</button>
+  <p id="cake-error" style="color:red; display:none; margin-top:10px;">Wrong password! Try again.</p>
+</div>
+
+  <h1>🎂 Your Birthday Cake Is Here 🎂</h1>
+  <p>Darling,Blow the candles my love and let your next wish find its way to me. 💜Candles, cream, frosting, and flames all there..! but nothing shines brighter than the one who’s blowing them today!!</p>
+
+   <iframe src="https://bdaycake.com/anu_4748"></iframe>
+
+<script>
+  function checkCakePass() {
+    const input = document.getElementById("cake-pass").value;
+    const correctPass = "lavenderkiss"; // 💌 The secret word you revealed in puzzle.html
+
+    if (input.trim().toLowerCase() === correctPass.toLowerCase()) {
+      document.getElementById("lock-screen").style.display = "none";
+    } else {
+      document.getElementById("cake-error").style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
